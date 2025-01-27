@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../contexts/UserContext"
-import { createUser } from "../../services/user/createUser"
+import createUser from "../../services/user/createUser"
 
 const Register = () => {
   const [newUser, setNewUser] = useState({
