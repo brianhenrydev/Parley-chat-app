@@ -1,29 +1,29 @@
 import { Outlet, useRoutes } from "react-router-dom"
+import NavBar from "../components/nav/NavBar"
 
 export const ApplicationViews = () => {
+
 
   const AppRoutes = useRoutes([
     {
       path: "/",
       element: (
-        <div>
-          <></>
-          <div>
-            <Outlet />
-          </div>
-        </div>
+        <>
+          <NavBar />
+          <Outlet />
+        </>
       ),
       children: [
-        { index: true, element: <></> },
+        { index: true, element: <>Home</> },
         {
           path: "chat",
           children: [
-            { path: ":chatId", element: <></> },
+            { path: ":chatId", element: <>Chat</> },
           ],
         },
-        { path: "all-chats", element: <></> },
-        { path: "new-chat", element: <></> },
-        { path: "profile", element: <></> },
+        { path: "all-chats", element: <>All Chats</> },
+        { path: "new-chat", element: <>New Chat</> },
+        { path: "profile", element: <>Profile</> },
       ],
     }
   ])
