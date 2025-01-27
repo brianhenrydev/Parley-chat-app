@@ -1,6 +1,7 @@
 import { Outlet, useRoutes } from "react-router-dom"
 import NavBar from "../components/nav/NavBar"
 import Chat from "../components/chat/Chat"
+import AllChats from "../components/chat/AllChats"
 
 export const ApplicationViews = () => {
 
@@ -15,14 +16,14 @@ export const ApplicationViews = () => {
         </>
       ),
       children: [
-        { index: true, element: <>Home</> },
+        { index: true, element: <>my chats</> },
         {
           path: "chat",
           children: [
             { path: ":chatId", element: <Chat /> },
           ],
         },
-        { path: "all-chats", element: <>All Chats</> },
+        { path: "all-chats", element: <AllChats /> },
         { path: "new-chat", element: <>New Chat</> },
         { path: "profile", element: <>Profile</> },
       ],
