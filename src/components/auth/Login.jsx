@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { UserContext } from "../../contexts/UserContext"
 
-export const Login = () => {
+const Login = () => {
   const [email, set] = useState("")
   const { handleLogin } = useContext(UserContext)
 
@@ -60,4 +60,4 @@ export const Login = () => {
   )
 }
 
-
+export default Login

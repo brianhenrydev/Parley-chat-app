@@ -1,10 +1,9 @@
-
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../../contexts/UserContext"
 import { createUser } from "../../services/user/createUser"
 
-export const Register = () => {
+const Register = () => {
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -112,3 +111,4 @@ export const Register = () => {
     </main>
   )
 }
+export default Register
