@@ -28,6 +28,7 @@ export const UserProvider = ({ children }) => {
     setCurrentUser({
       ...userData,
     })
+    localStorage.setItem("chat_user", JSON.stringify(userData))
   }
 
   return (
