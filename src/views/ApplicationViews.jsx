@@ -6,9 +6,9 @@ export const ApplicationViews = () => {
     {
       path: "/",
       element: (
-        <div className="flex h-screen flex-col">
+        <div>
           <></>
-          <div className="grow h-screen">
+          <div>
             <Outlet />
           </div>
         </div>
