@@ -2,6 +2,7 @@ import { Outlet, useRoutes } from "react-router-dom"
 import NavBar from "../components/nav/NavBar"
 import Chat from "../components/chat/Chat"
 import AllChats from "../components/chat/AllChats"
+import UserChats from "../components/chat/UserChats"
 
 export const ApplicationViews = () => {
 
@@ -16,7 +17,7 @@ export const ApplicationViews = () => {
         </>
       ),
       children: [
-        { index: true, element: <>my chats</> },
+        { index: true, element: <UserChats /> },
         {
           path: "chat",
           children: [
