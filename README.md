@@ -1,8 +1,7 @@
-# React + Vite
+# Parley - A Focused Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Project Overview
+In the current digital communication landscape, users often struggle to find focused spaces for discussions on specific topics. Many chat applications lack structured channels, leading to fragmented conversations and difficulty in engaging meaningfully. Additionally, the absence of visual emotional cues can hinder connection among users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Parley is a streamlined chat application that allows users to create and join dedicated channels for specific topics.
