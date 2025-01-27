@@ -4,6 +4,7 @@ import Chat from "../components/chat/Chat"
 import AllChats from "../components/chat/AllChats"
 import UserChats from "../components/chat/UserChats"
 import Profile from "../components/user/Profile"
+import NewChatForm from "../components/forms/NewChatForm"
 
 export const ApplicationViews = () => {
 
@@ -26,7 +27,7 @@ export const ApplicationViews = () => {
           ],
         },
         { path: "all-chats", element: <AllChats /> },
-        { path: "new-chat", element: <>New Chat</> },
+        { path: "new-chat", element: <NewChatForm /> },
         { path: "profile", element: <Profile /> },
       ],
     }
