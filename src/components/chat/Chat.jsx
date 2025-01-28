@@ -44,18 +44,17 @@ const Chat = () => {
   }
 
   return (
-    <div >
-      <div ref={msgContainerRef}>
+    <div className="flex h-full flex-col">
+      <div className="chat-container " ref={msgContainerRef}>
         {chatMessages.map((message) => (
           <Message
             key={message.id}
             message={message}
-            getAndSetChatMessages={getAndSetChatMessages}
             currentUser={currentUser}
+            getAndSetChatMessages={getAndSetChatMessages}
           />
         ))}
       </div>
-
       <ChatBar
         handleSendMessage={handleSendMessage}
         setMessage={setNewMessage}

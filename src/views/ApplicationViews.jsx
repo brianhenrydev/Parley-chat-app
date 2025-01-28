@@ -13,10 +13,12 @@ export const ApplicationViews = () => {
     {
       path: "/",
       element: (
-        <>
+        <div className="flex h-screen flex-col">
           <NavBar />
-          <Outlet />
-        </>
+          <div className="grow h-screen">
+            <Outlet />
+          </div>
+        </div>
       ),
       children: [
         { index: true, element: <UserChats /> },

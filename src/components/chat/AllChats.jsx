@@ -39,17 +39,19 @@ const AllChats = () => {
 
 
   return (
-    <div >
+    <div className="flex h-screen flex-col pt-24">
       <SearchBar setSearchTerm={setSearchTerm} />
-      <div >
+      <div className="mt-2 flex-1 overflow-y-scroll">
         {filteredChats.map(({ id, name }) => (
           <div
             id="user-chats"
             key={id}
+            className="mx-2 cursor-pointer shadow-2xl shadow-transparent"
           >
-            <div >
-              <div >
+            <div className="mt-5 w-full rounded-xl bg-blue-950 bg-opacity-25 p-2 align-middle">
+              <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
+                  className="text-4xl text-blue-300"
                 >
                   {name}
                 </Link>
@@ -57,7 +59,7 @@ const AllChats = () => {
                   !currentUserChats.find(({ chat: { id: chatId } }) => chatId === id) ?
                     <button
                       onClick={() => handleJoin(id, currentUser.id)}
-                    >
+                      className="float-end rounded-xl bg-blue-500 px-3 py-2 shadow-2xl shadow-black">
                       Join</button>
                     :
                     ""

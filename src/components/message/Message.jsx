@@ -35,48 +35,53 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   }, [userId]);
 
   return (
-    <div >
-      <Link >
-        <div >{user.username}  {user.moodEmoji}</div>
+    <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800 bg-opacity-50 p-4 shadow-md shadow-blue-950">
+      <Link className="mb-1 font-bold text-blue-400 hover:text-red-500">
+        <div className="">{user.username}  {user.moodEmoji}</div>
       </Link>
       {isEditing ? (
-        <div >
+        <div className="mb-1 break-words text-gray-300">
           <textarea
             id={message.id}
             value={editedMessage?.body}
             onChange={({ target: { value } }) => setEditedMessage({ ...editedMessage, body: value })}
-          />
-          <div >
+            className="w-full h-20 p-2 border rounded-md bg-gray-800 text-blue-200"
+          ></textarea>
+          <div className="flex justify-end mt-2">
             <button
               onClick={handleSaveEdit}
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2"
             >
               Save
             </button>
             <button
               onClick={handleCancelEdit}
+              className="bg-red-400 hover:bg-gray-300 px-4 py-2 rounded-md"
             >
               Cancel
             </button>
           </div>
         </div>
       ) : (
-        <div >{body}</div>
+        <div className="mb-1 break-words text-gray-300">{body}</div>
       )}
-      <div >
+      <div className="text-xs text-gray-500">
         {new Date(timestamp).toLocaleString()}
       </div>
       {
         userId === currentUser.id && !isEditing ?
-          <div >
-            <div >
-              <div >
+          <div className="">
+            <div className="flex row float-end">
+              <div className="flex-row text-right">
                 <button
                   onClick={handleEdit}
+                  className="mr-2 text-blue-400"
                 >Edit
                 </button>
               </div>
               <button
                 onClick={() => handleDelete(id)}
+                className="mr-2 text-red-500"
               >Delete
               </button>
             </div>
