@@ -1,0 +1,45 @@
+.view-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  padding-top: 3rem;
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+}
+
+.new-chat-form {
+  margin: auto;
+  margin-top: 1rem;
+  width: 50%;
+  width: 25%;
+  border-radius: 0.5rem;
+  background-color: #1f2937;
+  padding: 3.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 0 #000, 0 0 #000, 0 0 #000, 0 0 #1f2937;
+}
+
+
+.form-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #d1d5db;
+  padding: 0.5rem;
+  background-color: #374151;
+  color: white;
+}
+
+.submit-btn {
+  float: right;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #3b82f6;
+  padding: 0.5rem;
+  color: #f3f4f6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

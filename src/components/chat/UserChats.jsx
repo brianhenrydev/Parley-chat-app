@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../contexts/UserContext"
 import { getUserChats } from "../../services/chat/getUserChats"
+import "./Chats.css"
 
 const UserChats = () => {
   const [userChats, setUserChats] = useState([])
@@ -13,27 +14,29 @@ const UserChats = () => {
 
 
   return (
-    <div>
 
-      <div >
-        <div >
+    <>
+      <div className="view-container">
+        <div className="chat-container">
           {userChats.map(({ chat: { id, name } }) => (
-            <Link
-              to={`/chat/${id}`}
-              id="user-chats"
+            <div
+              className="chat"
               key={id}
             >
-              <div >
-                <div >
-                  <div >{name}</div>
-                </div>
-              </div>
-            </Link>
-          ))}
+              <Link
+                to={`/chat/${id}`}
+                id="user-chats"
+                className="chat-name"
+              >
+                {name}
+              </Link>
+            </div>
+          )
+          )}
         </div>
       </div>
+    </>
 
-    </div>
   )
 }
 

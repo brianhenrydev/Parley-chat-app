@@ -1,54 +1,42 @@
 import { Link } from "react-router-dom"
+import "./NavBar.css"
 
 const NavBar = () => {
   return (
-    <div>
-      <ol className="navbar">
-        <li
+    <div className="navbar-container">
+      <div className="navbar">
+        <Link
           className="navbar-item"
+          to="/"
         >
-          <Link
-            to="/"
-          >
-            My Chats
-          </Link>
-        </li>
-        <li
+          My Chats
+        </Link>
+        <Link
           className="navbar-item"
+          to="/all-chats"
         >
-          <Link
-            to="/all-chats"
-          >
-            All Chats
-          </Link>
-        </li>
-        <li
+          All Chats
+        </Link>
+        <Link
           className="navbar-item"
+          to="/new-chat"
         >
-          <Link
-            to="/new-chat"
-          >
-            New Chat
-          </Link>
-        </li>
-        <li
+          New Chat
+        </Link>
+        <Link
           className="navbar-item"
+          to="/profile"
         >
-          <Link
-            to="/profile"
-          >
-            Profile
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/login"
-            onClick={() => localStorage.removeItem("chat_user")}
-          >
-            Logout
-          </Link>
-        </li>
-      </ol>
+          Profile
+        </Link>
+        <Link
+          className="navbar-item"
+          to="/login"
+          onClick={() => localStorage.removeItem("chat_user")}
+        >
+          Logout
+        </Link>
+      </div >
     </div >
   )
 }

@@ -1,0 +1,35 @@
+.view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 3rem;
+}
+
+.chat-container {
+  overflow-y: scroll;
+  flex-basis: 1 1 0%;
+  column-gap: 3rem;
+}
+
+.chat {
+  margin: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: var(--gray-800);
+  border-radius: 0.375rem;
+}
+
+.chat-name {
+  margin-top: 1.25rem;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: rgb(30 58 138 / var(1, 1));
+  padding: 0.5rem;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.chat-name:hover {
+  color: var(--blue-500);
+}
