@@ -6,6 +6,7 @@ import ProfileEditForm from "../forms/ProfileEditForm"
 const Profile = () => {
   const { currentUser, updateCurrentUser } = useContext(UserContext)
   const [updatedUser, setUpdatedUser] = useState(currentUser)
+  const [selectedMood, setSelectedMood] = useState(currentUser.moodEmoji)
 
 
   const handleInput = ({ target: { name, value } }) => {
@@ -14,6 +15,10 @@ const Profile = () => {
       [name]: value
 
     })
+  }
+  const handleMoodChange = (e) => {
+    setSelectedMood(e.target.value)
+    handleInput(e)
   }
 
   const handleProfileUpdate = (e) => {
@@ -30,6 +35,8 @@ const Profile = () => {
         handleProfileUpdate={handleProfileUpdate}
         handleInput={handleInput}
         updatedUser={updatedUser}
+        selectedMood={selectedMood}
+        onMoodChange={handleMoodChange}
       />
     </div>
   )

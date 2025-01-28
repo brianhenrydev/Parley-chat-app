@@ -1,6 +1,7 @@
-const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser }) => {
+import { MoodSelect } from "../select/MoodSelect"
+const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, selectedMood, onMoodChange }) => {
   return (
-    <form name=""
+    <form name="profile-edit"
 
     >
       <div >
@@ -56,6 +57,10 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser }) => {
             autoComplete="none"
             defaultValue={updatedUser.username}
           />
+        </div>
+        <div>
+
+          <MoodSelect selectedMood={selectedMood} onMoodChange={onMoodChange} />
         </div>
       </div>
       <button
