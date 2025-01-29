@@ -35,9 +35,9 @@ const NewChatForm = () => {
 
   return (
     <div className="mt-44">
-      <form className="m-auto mt-44 md:w-1/2 lg:w-1/4 rounded-lg bg-gray-800 p-14 py-16 shadow-sm shadow-gray-800">
+      <form className="m-auto mt-44 rounded-lg bg-gray-800 p-14 py-16 shadow-sm shadow-gray-800 md:w-1/2 lg:w-1/4">
         <div className="text-center text-4xl text-blue-500">New Chat</div>
-        <label className="text-lg  text-blue-200" >
+        <label className="text-lg text-blue-200" >
           Topic:
           <input
             name="topic"
@@ -45,7 +45,7 @@ const NewChatForm = () => {
             className="form-input"
           />
         </label>
-        <label className="text-lg  text-blue-200" >
+        <label className="text-lg text-blue-200" >
           Name:
           <input
             name="name"
@@ -54,7 +54,7 @@ const NewChatForm = () => {
             className="form-input"
           />
         </label>
-        <label className="text-lg  text-blue-200" >
+        <label className="text-lg text-blue-200" >
           Category:
           <select
             id="category-select"
@@ -65,7 +65,7 @@ const NewChatForm = () => {
             }
           </select>
         </label>
-        <label className="text-lg  text-blue-200" >
+        <label className="text-lg text-blue-200" >
           Description:
           <input
             name="description"

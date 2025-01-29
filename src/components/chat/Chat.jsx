@@ -52,7 +52,7 @@ const Chat = () => {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="chat-container " ref={msgContainerRef}>
+      <div className="chat-container" ref={msgContainerRef}>
         {chatMessages.map((message) => (
           <Message
             key={message.id}

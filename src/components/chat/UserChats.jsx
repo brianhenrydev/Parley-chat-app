@@ -25,7 +25,7 @@ const UserChats = () => {
   }, [searchTerm, userChats])
 
   const handleLeaveChat = (chatId) => {
-    console.log(`chatId: ${chatId}`);
+    console.log(`chatId:${chatId}`);
   }
 
   return (
@@ -38,16 +38,16 @@ const UserChats = () => {
             key={id}
             className="mx-2 cursor-pointer shadow-2xl shadow-transparent"
           >
-            <div className="mt-5 w-full rounded-xl bg-blue-950 p-2 flex justify-between items-center">
+            <div className="mt-5 flex w-full items-center justify-between rounded-xl bg-blue-950 p-2">
               <Link
                 to={`/chat/${id}`}
-                className="text-4xl text-blue-300 p-2 hover:text-blue-400">{name}</Link>
+                className="p-2 text-4xl text-blue-300 hover:text-blue-400">{name}</Link>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   handleLeaveChat(id);
                 }}
-                className="ml-4 p-2 bg-red-600 text-white rounded-xl"
+                className="ml-4 rounded-xl bg-red-600 p-2 text-white"
               >
                 Leave Chat
               </button>

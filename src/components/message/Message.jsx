@@ -45,18 +45,18 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
             id={message.id}
             value={editedMessage?.body}
             onChange={({ target: { value } }) => setEditedMessage({ ...editedMessage, body: value })}
-            className="w-full h-20 p-2 border rounded-md bg-gray-800 text-blue-200"
+            className="h-20 w-full rounded-md border bg-gray-800 p-2 text-blue-200"
           ></textarea>
-          <div className="flex justify-end mt-2">
+          <div className="mt-2 flex justify-end">
             <button
               onClick={handleSaveEdit}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mr-2"
+              className="mr-2 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             >
               Save
             </button>
             <button
               onClick={handleCancelEdit}
-              className="bg-red-400 hover:bg-gray-300 px-4 py-2 rounded-md"
+              className="rounded-md bg-red-400 px-4 py-2 hover:bg-gray-300"
             >
               Cancel
             </button>
@@ -71,7 +71,7 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
       {
         userId === currentUser.id && !isEditing ?
           <div className="">
-            <div className="flex row float-end">
+            <div className="row float-end flex">
               <div className="flex-row text-right">
                 <button
                   onClick={handleEdit}

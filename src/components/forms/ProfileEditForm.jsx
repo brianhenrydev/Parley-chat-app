@@ -3,9 +3,9 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
   return (
     <div className="flex h-full w-full justify-center">
       <form name="profile-edit"
-        className="m-auto mt-44 md:w-1/2 lg:w-1/4 rounded-lg bg-gray-800 p-8 shadow-sm shadow-gray-800"
+        className="m-auto mt-44 rounded-lg bg-gray-800 p-8 shadow-sm shadow-gray-800 md:w-1/2 lg:w-1/4"
       >
-        <div className="text-left text-4xl  text-blue-500">
+        <div className="text-left text-4xl text-blue-500">
           Update Profile
         </div>
         <div className="mt-6">

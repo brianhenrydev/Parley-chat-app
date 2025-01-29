@@ -2,7 +2,7 @@
 const ChatBar = ({ message, setMessage, handleSendMessage }) => {
   const isDisabled = message.body?.trim() === ""
   return (
-    <div className="w-screen z-10 flex mb-2">
+    <div className="z-10 mb-2 flex w-screen">
       <input
         type="text"
         name="chatbar"
@@ -16,7 +16,7 @@ const ChatBar = ({ message, setMessage, handleSendMessage }) => {
       <button
         onClick={handleSendMessage}
         disabled={isDisabled}
-        className="mx-2 rounded-md bg-blue-800 py-4 px-5 text-white hover:bg-blue-700 disabled:bg-gray-700"
+        className="mx-2 rounded-md bg-blue-800 px-5 py-4 text-white hover:bg-blue-700 disabled:bg-gray-700"
       >
         Send
       </button>
