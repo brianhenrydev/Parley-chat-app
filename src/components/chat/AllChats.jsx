@@ -46,7 +46,7 @@ const AllChats = () => {
             key={id}
             className="mx-2 cursor-pointer shadow-2xl shadow-transparent"
           >
-            <div className="mt-5 w-full rounded-xl bg-blue-950 bg-opacity-25 p-2 align-middle">
+            <div className="mt-5 w-full rounded-xl bg-blue-950/60 bg-opacity-25 p-2 align-middle">
               <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
                   className="p-2 text-4xl text-blue-300 hover:text-blue-400"

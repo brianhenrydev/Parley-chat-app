@@ -35,7 +35,7 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   }, [userId]);
 
   return (
-    <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800 bg-opacity-50 p-4 shadow-md shadow-blue-950">
+    <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800/30 bg-opacity-50 p-4 shadow-md shadow-blue-950">
       <Link className="mb-1 font-bold text-blue-400 hover:text-red-500">
         <div className="">{user.username}  {user.moodEmoji}</div>
       </Link>
