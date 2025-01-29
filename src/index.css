@@ -32,7 +32,7 @@
   }
 
   .navbar {
-    @apply bg-gray-700 shadow-black shadow-md mt-2 p-2 rounded-md h-auto fixed z-50;
+    @apply bg-gray-800 shadow-black shadow-md mt-2 p-3 rounded-md h-auto fixed z-50;
   }
 
   .form-input {
