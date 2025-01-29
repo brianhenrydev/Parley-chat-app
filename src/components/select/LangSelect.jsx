@@ -44,15 +44,15 @@ export const LangSelect = ({ selectedLang, onLangChange }) => {
 
   return (
     <div className="mt-4">
-      <div className="label">Prefered Language:</div>
+      <div className="label">Preferred Language:</div>
       <select
-        value={selectedLang.toUpperCase()}
-        name="preferedLang"
+        value={selectedLang}
+        name="preferredLang"
         id="lang-select"
         onChange={onLangChange}
         className="w-full rounded-lg border border-gray-300 bg-gray-700 p-2 text-white"
       >
-        <option value="" disabled>Select a Prefered Language</option>
+        <option value="" disabled>Select a Preferred Language</option>
         {langs.length > 0 ? langs.map(({ name, value }) => (
           <option key={name} value={value}>
             {name}
