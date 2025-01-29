@@ -36,10 +36,10 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   }, [userId]);
 
   useEffect(() => {
-    if (body && currentUser.preferedLang) {
-      translateMessage(body, currentUser.preferedLang).then(({ translatedText }) => setTranslatedBody(translatedText))
+    if (body && currentUser.preferredLang) {
+      translateMessage(body, currentUser.preferredLang).then(({ translatedText }) => setTranslatedBody(translatedText))
     }
-  }, [body, currentUser.preferedLang]);
+  }, [body, currentUser.preferredLang]);
 
   return (
     <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800/30 bg-opacity-50 p-4 shadow-md shadow-blue-950">

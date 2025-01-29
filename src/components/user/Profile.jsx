@@ -7,7 +7,7 @@ const Profile = () => {
   const { currentUser, updateCurrentUser } = useContext(UserContext)
   const [updatedUser, setUpdatedUser] = useState(currentUser)
   const [selectedMood, setSelectedMood] = useState(currentUser.moodEmoji)
-  const [selectedLang, setSelectedLang] = useState(currentUser.preferedLang)
+  const [selectedLang, setSelectedLang] = useState(currentUser.preferredLang)
 
 
   const handleInput = ({ target: { name, value } }) => {
