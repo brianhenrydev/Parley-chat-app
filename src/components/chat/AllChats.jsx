@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import { getAllChats } from "../../services/chat/getAllChats"
 import { Link, useNavigate } from "react-router-dom";
 import { getUserChats } from "../../services/chat/getUserChats"
@@ -14,16 +14,15 @@ const AllChats = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const navigate = useNavigate();
 
-  const getAndSetChats = () => {
+  const getAndSetChats = useCallback(() => {
     getAllChats().then(chats => setAllChats(chats));
     getUserChats(currentUser.id).then((userChats) => setCurrentUserChats(userChats))
-  };
+  }, [currentUser.id])
   const handleJoin = (id, userId) => {
     addUserToChat({ chatId: id, userId: userId })
       .then(() => navigate("/"))
 
   }
-
   useEffect(() => {
     const filteredChats = allChats.filter(({ name }) => {
       const nameLower = name.toLowerCase()
@@ -35,8 +34,7 @@ const AllChats = () => {
 
   useEffect(() => {
     getAndSetChats();
-  }, []);
-
+  }, [getAndSetChats]);
 
   return (
     <div className="flex h-screen flex-col pt-24">
@@ -51,7 +49,7 @@ const AllChats = () => {
             <div className="mt-5 w-full rounded-xl bg-blue-950 bg-opacity-25 p-2 align-middle">
               <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
-                  className="text-4xl text-blue-300"
+                  className="text-4xl text-blue-300 p-2 hover:text-blue-400"
                 >
                   {name}
                 </Link>
