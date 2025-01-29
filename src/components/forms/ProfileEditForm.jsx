@@ -1,5 +1,6 @@
+import { LangSelect } from "../select/LangSelect"
 import { MoodSelect } from "../select/MoodSelect"
-const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, selectedMood, onMoodChange }) => {
+const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, selectedMood, onMoodChange, selectedLang, onLangChange }) => {
   return (
     <div className="flex h-full w-full justify-center">
       <form name="profile-edit"
@@ -61,6 +62,9 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
           </div>
           <div>
             <MoodSelect selectedMood={selectedMood} onMoodChange={onMoodChange} />
+          </div>
+          <div>
+            <LangSelect onLangChange={onLangChange} selectedLang={selectedLang} />
           </div>
         </div>
         <button
