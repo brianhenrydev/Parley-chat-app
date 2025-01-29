@@ -1,5 +1,6 @@
 import { deleteMessage } from "../../services/message/deleteMessage";
 import { editMessage } from "../../services/message/editMessage";
+import translateMessage from "../../services/translation/Translate";
 import { getUserById } from "../../services/user/userServices"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -8,8 +9,8 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedMessage, setEditedMessage] = useState(message);
-
   const { id, userId, timestamp, body } = message
+  const [translatedBody, setTranslatedBody] = useState(body)
 
   const handleDelete = (id) => {
     deleteMessage(id).then(() => getAndSetChatMessages());
@@ -33,6 +34,12 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   useEffect(() => {
     getUserById(userId).then((user) => { setUser(user) });
   }, [userId]);
+
+  useEffect(() => {
+    if (body && currentUser.preferedLang) {
+      translateMessage(body, currentUser.preferedLang).then(({ translatedText }) => setTranslatedBody(translatedText))
+    }
+  }, [body, currentUser.preferedLang]);
 
   return (
     <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800/30 bg-opacity-50 p-4 shadow-md shadow-blue-950">
@@ -63,7 +70,7 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
           </div>
         </div>
       ) : (
-        <div className="mb-1 break-words text-gray-300">{body}</div>
+        <div className="mb-1 break-words text-gray-300">{translatedBody}</div>
       )}
       <div className="text-xs text-gray-500">
         {new Date(timestamp).toLocaleString()}
