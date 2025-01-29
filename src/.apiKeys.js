@@ -1,1 +1,1 @@
-export const DEEPL_API_KEY = "";
+export const DEEPL_API_KEY = "test";
