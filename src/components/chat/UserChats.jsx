@@ -32,9 +32,9 @@ const UserChats = () => {
           <div
             id="user-chats"
             key={id}
-            className="mx-2 cursor-pointer shadow-2xl shadow-transparent"
+            className="mx-2 cursor-pointer"
           >
-            <div className="mt-5 flex w-full items-center justify-between rounded-xl bg-blue-950/60 p-2">
+            <div className="mt-5 flex w-full items-center justify-between rounded-xl bg-blue-950/60 p-2 shadow-lg shadow-black">
               <Link
                 to={`/chat/${id}`}
                 className="p-2 text-4xl text-blue-300 hover:text-blue-400">{name}</Link>

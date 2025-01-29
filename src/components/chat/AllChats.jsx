@@ -39,14 +39,14 @@ const AllChats = () => {
   return (
     <div className="flex h-screen flex-col pt-24">
       <SearchBar setSearchTerm={setSearchTerm} />
-      <div className="mt-2 flex-1 overflow-y-scroll">
+      <div className="mt-12 flex-1 overflow-y-scroll">
         {filteredChats.map(({ id, name }) => (
           <div
             id="user-chats"
             key={id}
-            className="mx-2 cursor-pointer shadow-2xl shadow-transparent"
+            className="mx-2 cursor-pointer"
           >
-            <div className="mt-5 w-full rounded-xl bg-blue-950/60 bg-opacity-25 p-2 align-middle">
+            <div className="mt-5 w-full rounded-xl bg-blue-950/60 bg-opacity-25 p-4 align-middle shadow-lg shadow-black">
               <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
                   className="p-2 text-4xl text-blue-300 hover:text-blue-400"

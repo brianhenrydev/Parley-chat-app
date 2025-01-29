@@ -5,8 +5,8 @@ const SearchBar = ({ setSearchTerm }) => {
       <input
         id="search-bar"
         onChange={({ target: { value } }) => setSearchTerm(value)}
-        className="mx-2 h-12 w-11/12 rounded-xl border-2 border-blue-700 bg-blue-950 text-red-50"
-        placeholder="Search Chats.."
+        className="mx-2 h-12 w-11/12 rounded-xl border-2 border-blue-700 bg-blue-950 pl-2 text-red-50"
+        placeholder="Search Chats..."
         type="text"
       />
     </div>
