@@ -42,15 +42,6 @@ const UserChats = () => {
               <Link
                 to={`/chat/${id}`}
                 className="p-2 text-4xl text-blue-300 hover:text-blue-400">{name}</Link>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleLeaveChat(id);
-                }}
-                className="ml-4 rounded-xl bg-red-600 p-2 text-white"
-              >
-                Leave Chat
-              </button>
             </div>
           </div>
         ))}
