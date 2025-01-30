@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../../contexts/UserContext"
-import { getUserChats } from "../../services/chat/getUserChats"
-import SearchBar from "../search/SearchBar"
+import { UserContext } from "../contexts/UserContext"
+import { getUserChats } from "../services/chat/getUserChats"
+import SearchBar from "../components/search/SearchBar"
 
 const UserChats = () => {
   const [userChats, setUserChats] = useState([])
