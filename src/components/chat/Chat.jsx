@@ -46,7 +46,7 @@ const Chat = () => {
           setNewMessage("")
         })
     } else {
-      console.log("slow down there tex", newMessage.userId, newMessage.chatId)
+      console.error("slow down there tex", newMessage.userId, newMessage.chatId)
     }
   }
 
@@ -59,6 +59,7 @@ const Chat = () => {
             message={message}
             currentUser={currentUser}
             getAndSetChatMessages={getAndSetChatMessages}
+            toTranslate={false}
           />
         ))}
       </div>
