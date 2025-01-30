@@ -5,7 +5,7 @@ import getChatMessages from "../../services/chat/getChatMessages"
 import { UserContext } from "../../contexts/UserContext"
 import ChatBar from "../input/ChatBar";
 import createMessage from "../../services/message/createMessage";
-
+import queryAi from "../../services/gpt/queryAi";
 
 const Chat = () => {
   const { chatId } = useParams()
@@ -14,7 +14,8 @@ const Chat = () => {
   const msgContainerRef = useRef(null);
   const [newMessage, setNewMessage] = useState({
     userId: currentUser.id,
-    chatId: chatId
+    chatId: parseInt(chatId),
+    body: ""
   });
 
   const scrollToBottom = () => {
@@ -36,14 +37,29 @@ const Chat = () => {
 
 
   const handleSendMessage = () => {
-    if (newMessage.userId && newMessage.chatId) {
+    if (newMessage.userId || newMessage.userId === 0 && newMessage.chatId) {
       createMessage({
         ...newMessage,
         timestamp: new Date().toLocaleString()
       })
         .then(() => {
           getAndSetChatMessages()
-          setNewMessage("")
+          if (newMessage.body[0] === "/") {
+            if (newMessage.body.substring(0, 5).trim() === "/bot") {
+              queryAi(newMessage.body.substring(5)).then(({ response }) => {
+                createMessage({
+                  userId: 0,
+                  chatId: chatId,
+                  body: response,
+                  timestamp: new Date().toLocaleString()
+                }).then(getAndSetChatMessages)
+              })
+            }
+          }
+          setNewMessage({
+            ...newMessage,
+            body: "",
+          })
         })
     } else {
       console.log("slow down there tex", newMessage.userId, newMessage.chatId)
@@ -58,6 +74,7 @@ const Chat = () => {
             key={message.id}
             message={message}
             currentUser={currentUser}
+            translate={false}
             getAndSetChatMessages={getAndSetChatMessages}
           />
         ))}

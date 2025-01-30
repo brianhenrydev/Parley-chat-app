@@ -5,7 +5,7 @@ import { getUserById } from "../../services/user/userServices"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Message = ({ message, currentUser, getAndSetChatMessages }) => {
+const Message = ({ message, currentUser, getAndSetChatMessages, translate }) => {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedMessage, setEditedMessage] = useState(message);
@@ -36,7 +36,7 @@ const Message = ({ message, currentUser, getAndSetChatMessages }) => {
   }, [userId]);
 
   useEffect(() => {
-    if (body && currentUser.preferredLang) {
+    if (body && currentUser.preferredLang && translate) {
       translateMessage(body, currentUser.preferredLang).then(({ translatedText }) => setTranslatedBody(translatedText))
     }
   }, [body, currentUser.preferredLang]);
