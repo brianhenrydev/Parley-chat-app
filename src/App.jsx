@@ -1,8 +1,8 @@
 import { useRoutes } from "react-router-dom"
 import Authorized from "./components/auth/Authorized"
-import { UserProvider } from "./contexts/UserProvider"
+import UserProvider from "./contexts/UserProvider"
 import Login from "./components/auth/Login"
-import { ApplicationViews } from "./views/ApplicationViews"
+import ApplicationViews from "./views/ApplicationViews"
 import Register from "./components/auth/Register"
 
 const App = () => {

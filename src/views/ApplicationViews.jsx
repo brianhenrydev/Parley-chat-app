@@ -6,7 +6,7 @@ import UserChats from "../components/chat/UserChats"
 import Profile from "../components/user/Profile"
 import NewChatForm from "../components/forms/NewChatForm"
 
-export const ApplicationViews = () => {
+const ApplicationViews = () => {
 
 
   const AppRoutes = useRoutes([
@@ -15,7 +15,7 @@ export const ApplicationViews = () => {
       element: (
         <div className="flex h-screen flex-col">
           <NavBar />
-          <div className="grow h-screen">
+          <div className="h-screen grow">
             <Outlet />
           </div>
         </div>
@@ -37,3 +37,4 @@ export const ApplicationViews = () => {
   return (AppRoutes)
 }
 
+export default ApplicationViews
