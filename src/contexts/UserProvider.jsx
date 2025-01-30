@@ -18,9 +18,13 @@ const UserProvider = ({ children }) => {
 
   const handleLogin = (email) => {
     getUserByEmail(email).then(([user]) => {
-      setCurrentUser(user)
-      localStorage.setItem("chat_user", JSON.stringify(user))
-      navigate("/")
+      if (user) {
+        setCurrentUser(user)
+        localStorage.setItem("chat_user", JSON.stringify(user))
+        navigate("/")
+      } else {
+        window.alert("Invalid Login")
+      }
     })
   }
 
