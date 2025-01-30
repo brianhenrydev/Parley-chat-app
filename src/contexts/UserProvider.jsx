@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getUserByEmail } from "../services/user/userServices"
 
-export const UserProvider = ({ children }) => {
+const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("chat_user")) || {
     id: 0,
     full_name: "",
@@ -37,3 +37,5 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   )
 }
+
+export default UserProvider
