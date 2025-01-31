@@ -34,7 +34,7 @@ const Register = () => {
     <main className="flex w-full">
       <form className="floating-form mt-44" onSubmit={handleRegister}>
         <h1
-          className="text-center text-4xl text-blue-500 font-bold mb-4"
+          className="mb-4 text-center text-4xl font-bold text-blue-500"
         >
           Parley Chat
         </h1>

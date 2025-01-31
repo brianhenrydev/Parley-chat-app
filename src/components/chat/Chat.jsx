@@ -14,14 +14,19 @@ const Chat = () => {
   const msgContainerRef = useRef(null);
   const [newMessage, setNewMessage] = useState({
     userId: currentUser.id,
-    chatId: chatId,
-    body: "",
-    timestamp: ""
+    chatId: chatId
   });
+
+  const scrollToBottom = () => {
+    if (msgContainerRef.current) {
+      msgContainerRef.current.scrollTop = msgContainerRef.current.scrollHeight;
+    }
+  };
 
   const getAndSetChatMessages = useCallback(() => {
     getChatMessages(chatId).then((cm) => {
       setChatMessages(cm)
+      setTimeout(scrollToBottom, 100)
     })
   }, [chatId]);
 
@@ -29,33 +34,34 @@ const Chat = () => {
     getAndSetChatMessages();
   }, [getAndSetChatMessages]);
 
+
   const handleSendMessage = () => {
     if (newMessage.userId && newMessage.chatId) {
       createMessage({
         ...newMessage,
         timestamp: new Date().toLocaleString()
-      }).then(() => {
-        getAndSetChatMessages()
-        setNewMessage("")
       })
+        .then(() => {
+          getAndSetChatMessages()
+          setNewMessage("")
+        })
     } else {
-      console.log("slow down there tex")
+      console.log("slow down there tex", newMessage.userId, newMessage.chatId)
     }
   }
 
   return (
-    <div >
-      <div ref={msgContainerRef}>
+    <div className="flex h-full flex-col">
+      <div className="chat-container" ref={msgContainerRef}>
         {chatMessages.map((message) => (
           <Message
             key={message.id}
             message={message}
-            getAndSetChatMessages={getAndSetChatMessages}
             currentUser={currentUser}
+            getAndSetChatMessages={getAndSetChatMessages}
           />
         ))}
       </div>
-
       <ChatBar
         handleSendMessage={handleSendMessage}
         setMessage={setNewMessage}

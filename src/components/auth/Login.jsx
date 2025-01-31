@@ -22,7 +22,7 @@ const Login = () => {
         <section
           className="floating-form">
           <form className="auth-form" onSubmit={onSubmit}>
-            <h1 className="text-4xl font-bold text-blue-400 mb-4 text-center">Parley Chat</h1>
+            <h1 className="mb-4 text-center text-4xl font-bold text-blue-400">Parley Chat</h1>
             <h2
               className="text-blue-500"
             >Please sign in</h2>

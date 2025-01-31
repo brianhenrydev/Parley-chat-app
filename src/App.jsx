@@ -4,7 +4,6 @@ import { UserProvider } from "./contexts/UserProvider"
 import Login from "./components/auth/Login"
 import { ApplicationViews } from "./views/ApplicationViews"
 import Register from "./components/auth/Register"
-import "./App.css"
 
 const App = () => {
   const routes = useRoutes([
