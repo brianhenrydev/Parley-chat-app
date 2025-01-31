@@ -23,7 +23,7 @@ const Chat = () => {
   const getAndSetChatMessages = useCallback(() => {
     getChatMessages(chatId)
       .then((cm) => {
-        setChatMessages(cm)
+        setTimeout(setChatMessages(cm), 100)
         setTimeout(scrollToBottom, 100)
       })
   }, [chatId]);
@@ -43,8 +43,8 @@ const Chat = () => {
         .then((createMsgRes) => {
           getAndSetChatMessages();
           resetNewMessage()
-          if (createMsgRes.body[0] === "/") {
-            if (createMsgRes.body.substring(0, 5).trim() === "/bot") {
+          if (createMsgRes.body.trim()[0] === "/") {
+            if (createMsgRes.body.trim().substring(1, 5).trim() === "bot") {
               createMessage({
                 userId: 0,
                 chatId: chatId,
@@ -54,12 +54,13 @@ const Chat = () => {
                 .then((loadingMsg) => {
                   const query = body.substring(5)
                   queryAi(query)
-                    .then(({ response }) => {
+                    .then((res) =>
                       editMessage({
                         ...loadingMsg,
-                        body: response
-                      }).then(getAndSetChatMessages);
-                    });
+                        body: res.response
+                      }).then(() => {
+                        getAndSetChatMessages()
+                      }))
                 });
             }
           }
