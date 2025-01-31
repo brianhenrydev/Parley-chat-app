@@ -4,6 +4,7 @@ const queryAi = (prompt) =>
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({
 			model: "llama3.2",
+			messages: ["you response should be in markdown format"],
 			prompt: prompt,
 			stream: false,
 		}),
