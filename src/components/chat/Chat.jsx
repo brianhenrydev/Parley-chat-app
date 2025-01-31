@@ -1,11 +1,12 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import Message from "../message/Message";
 import getChatMessages from "../../services/chat/getChatMessages"
 import { UserContext } from "../../contexts/UserContext"
 import ChatBar from "../input/ChatBar";
 import createMessage from "../../services/message/createMessage";
 import queryAi from "../../services/gpt/queryAi";
+import { editMessage } from "../../services/message/editMessage";
+import MessageHandle from "../message/MessageHandle";
 
 const Chat = () => {
   const { chatId } = useParams()
@@ -18,59 +19,75 @@ const Chat = () => {
     body: ""
   });
 
+
+  const getAndSetChatMessages = useCallback(() => {
+    getChatMessages(chatId)
+      .then((cm) => {
+        setChatMessages(cm)
+        setTimeout(scrollToBottom, 100)
+      })
+  }, [chatId]);
+
+  useEffect(getAndSetChatMessages, [getAndSetChatMessages]);
+
+
+  const handleSendMessage = () => {
+    const { userId, body, chatId } = newMessage;
+    if (userId || (userId === 0 && chatId)) {
+      createMessage({
+        userId: userId,
+        chatId: chatId,
+        body: body,
+        timestamp: new Date().toLocaleString()
+      })
+        .then((createMsgRes) => {
+          getAndSetChatMessages();
+          resetNewMessage()
+          if (createMsgRes.body[0] === "/") {
+            if (createMsgRes.body.substring(0, 5).trim() === "/bot") {
+              createMessage({
+                userId: 0,
+                chatId: chatId,
+                body: "I'm thinking...",
+                timestamp: new Date().toLocaleString()
+              })
+                .then((loadingMsg) => {
+                  const query = body.substring(5)
+                  queryAi(query)
+                    .then(({ response }) => {
+                      editMessage({
+                        ...loadingMsg,
+                        body: response
+                      }).then(getAndSetChatMessages);
+                    });
+                });
+            }
+          }
+        });
+    } else {
+      console.log("slow down there tex", userId, chatId);
+    }
+  };
+
   const scrollToBottom = () => {
     if (msgContainerRef.current) {
       msgContainerRef.current.scrollTop = msgContainerRef.current.scrollHeight;
     }
   };
 
-  const getAndSetChatMessages = useCallback(() => {
-    getChatMessages(chatId).then((cm) => {
-      setChatMessages(cm)
-      setTimeout(scrollToBottom, 100)
+  const resetNewMessage = () => {
+    return setNewMessage({
+      ...newMessage,
+      body: "",
     })
-  }, [chatId]);
+  };
 
-  useEffect(() => {
-    getAndSetChatMessages();
-  }, [getAndSetChatMessages]);
-
-
-  const handleSendMessage = () => {
-    if (newMessage.userId || newMessage.userId === 0 && newMessage.chatId) {
-      createMessage({
-        ...newMessage,
-        timestamp: new Date().toLocaleString()
-      })
-        .then(() => {
-          getAndSetChatMessages()
-          if (newMessage.body[0] === "/") {
-            if (newMessage.body.substring(0, 5).trim() === "/bot") {
-              queryAi(newMessage.body.substring(5)).then(({ response }) => {
-                createMessage({
-                  userId: 0,
-                  chatId: chatId,
-                  body: response,
-                  timestamp: new Date().toLocaleString()
-                }).then(getAndSetChatMessages)
-              })
-            }
-          }
-          setNewMessage({
-            ...newMessage,
-            body: "",
-          })
-        })
-    } else {
-      console.log("slow down there tex", newMessage.userId, newMessage.chatId)
-    }
-  }
 
   return (
     <div className="flex h-full flex-col">
       <div className="chat-container" ref={msgContainerRef}>
         {chatMessages.map((message) => (
-          <Message
+          <MessageHandle
             key={message.id}
             message={message}
             currentUser={currentUser}
