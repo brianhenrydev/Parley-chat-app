@@ -6,33 +6,34 @@
   @apply bg-gray-900;
 }
 
+
 @layer components {
   .chat-container {
-    @apply h-full overflow-y-auto border-gray-700 p-4 mt-9;
+    @apply mt-9 h-full overflow-y-auto border-gray-700 p-4;
   }
 
   .floating-form {
-    @apply m-auto sm:w-3/4 md:w-1/2 lg:w-1/4 p-11 shadow-lg bg-gray-800 rounded-lg;
-  }
-
-  .input {
-    @apply w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-gray-800 opacity-60 text-slate-300;
+    @apply m-auto rounded-lg bg-gray-800 p-11 shadow-lg sm:w-3/4 md:w-1/2 lg:w-1/4;
   }
 
   .btn-blue {
-    @apply w-full mt-2 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200;
+    @apply mt-2 w-full rounded-md bg-blue-600 p-2 text-white transition duration-200 hover:bg-blue-700;
   }
 
   .btn-submit {
-    @apply w-full mt-1 p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition duration-200;
+    @apply mt-1 w-full rounded-md bg-blue-500 p-2 text-white transition duration-200 hover:bg-blue-700;
+  }
+
+  .navbar {
+    @apply fixed z-50 mt-2 h-auto rounded-md bg-gray-800 p-3 shadow-md shadow-black;
   }
 
   .nav-link {
     @apply text-blue-400 hover:text-blue-300;
   }
 
-  .navbar {
-    @apply bg-gray-800 shadow-black shadow-md mt-2 p-3 rounded-md h-auto fixed z-50;
+  .input {
+    @apply w-full rounded-md border border-gray-300 bg-gray-800 p-2 text-slate-300 opacity-60 focus:outline-none focus:ring-1 focus:ring-blue-500;
   }
 
   .form-input {

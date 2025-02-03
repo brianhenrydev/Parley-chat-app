@@ -3,7 +3,7 @@ const ChatBar = ({ message, setMessage, handleSendMessage }) => {
   const isDisabled = message.body?.trim() === ""
 
   return (
-    <div className="z-10 mb-2 flex w-screen">
+    <div className="z-10 m-2 flex">
       <input
         type="text"
         name="chatbar"
