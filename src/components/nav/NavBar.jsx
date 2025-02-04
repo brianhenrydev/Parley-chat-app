@@ -5,7 +5,7 @@ import { useContext } from "react"
 const NavBar = () => {
   const { theme, changeTheme, themes } = useContext(ThemeContext);
   return (
-    <div className="fixed left-0 top-0 z-50 flex w-full justify-between p-2 shadow-md">
+    <div className="fixed left-0 top-0 z-50 flex w-full justify-between p-2">
       <div>
         <Link to="/" className="btn btn-secondary">
           My Chats

@@ -51,7 +51,7 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
       <div className="flex">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="chat-header mr-2">chatbot</span>
+            <span className="chat-header mr-2 text-lg">chatbot</span>
             <span className="chat-header text-lg">🤖</span>
           </div>
         </Link>
@@ -72,7 +72,9 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
       <div className="flex justify-end">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="chat-header mr-2">{user.username}</span>
+            <span className="chat-header mr-2 text-lg">
+              {user.username}
+            </span>
             <span className="text-lg">{user.moodEmoji}</span>
           </div>
         </Link>

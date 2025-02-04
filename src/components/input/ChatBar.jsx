@@ -10,7 +10,7 @@ const ChatBar = ({ message, setMessage, handleSendMessage }) => {
         onChange={({ target: { value } }) => setMessage({ ...message, body: value })}
         onKeyUp={({ keyCode }) => { keyCode === 13 && handleSendMessage() }}
         placeholder="Type your message..."
-        className="h-10 w-[88%] rounded-md border focus:outline-none focus:ring-2"
+        className="h-10 w-[88%] rounded-md border pl-2 focus:outline-none focus:ring-2"
       />
       <button
         onClick={handleSendMessage}

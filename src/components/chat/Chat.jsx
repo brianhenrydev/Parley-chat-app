@@ -22,11 +22,14 @@ const Chat = () => {
   const getAllChatMessages = async () => {
     const cm = await getChatMessages(chatId)
     setChatMessages(cm)
-    setTimeout(scrollToBottom, 100)
   };
   useEffect(() => {
     getAllChatMessages()
-  }, [])
+  })
+
+  useEffect(() => {
+    setTimeout(() => { scrollToBottom() }, 100);
+  }, [chatMessages]);
 
 
   const handleSlashMessage = async (message) => {
@@ -96,7 +99,7 @@ const Chat = () => {
   return (
     <div className="mx-3 mb-32 mt-10 flex h-full flex-col">
       <div
-        className="flex-grow"
+        className="h-screen flex-grow"
         ref={msgContainerRef}
       >
         {chatMessages.map((message) => {
