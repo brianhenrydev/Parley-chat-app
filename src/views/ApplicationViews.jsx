@@ -13,11 +13,9 @@ const ApplicationViews = () => {
     {
       path: "/",
       element: (
-        <div className="flex h-screen flex-col">
+        <div className="flex flex-col">
           <NavBar />
-          <div className="h-screen grow">
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       ),
       children: [

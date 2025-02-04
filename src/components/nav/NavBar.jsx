@@ -28,12 +28,14 @@ const NavBar = () => {
       </div>
       <li className="btn btn-secondary">
         <select
+          defaultValue={theme}
+          className="border-none focus:border-none"
           onChange={({ target: { value } }) => changeTheme(value)}
         >
           {
             themes.map(
               (t) =>
-                <option selected={t === theme && true} key={t} value={t}>{t}</option>
+                <option key={t} value={t}>{t}</option>
             )
           }
         </select>

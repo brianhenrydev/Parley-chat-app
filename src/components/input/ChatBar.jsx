@@ -1,4 +1,3 @@
-
 const ChatBar = ({ message, setMessage, handleSendMessage }) => {
   const isDisabled = message.body?.trim() === ""
 
@@ -11,12 +10,12 @@ const ChatBar = ({ message, setMessage, handleSendMessage }) => {
         onChange={({ target: { value } }) => setMessage({ ...message, body: value })}
         onKeyUp={({ keyCode }) => { keyCode === 13 && handleSendMessage() }}
         placeholder="Type your message..."
-        className="m-1 w-[99%] rounded-md border font-mono focus:outline-none focus:ring-2"
+        className="h-10 w-[88%] rounded-md border focus:outline-none focus:ring-2"
       />
       <button
         onClick={handleSendMessage}
         disabled={isDisabled}
-        className="btn btn-outline m-1 h-full p-3"
+        className="ml-1.5 h-10 w-[9%] rounded-md border focus:outline-none focus:ring-2"
       >
         Send
       </button>
@@ -25,3 +24,4 @@ const ChatBar = ({ message, setMessage, handleSendMessage }) => {
 }
 
 export default ChatBar
+

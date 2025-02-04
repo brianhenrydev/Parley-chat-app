@@ -4,7 +4,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
   return (
     <div className="flex h-full w-full justify-center">
       <form name="profile-edit"
-        className="m-auto mt-44 rounded-lg p-8 shadow-sm md:w-1/2 lg:w-1/4"
+        className="bg-neutral m-auto mt-44 rounded-lg p-8 shadow-2xl md:w-1/2 lg:w-1/4"
       >
         <div className="text-left text-4xl">
           Update Profile
@@ -17,7 +17,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
             <input
               name="firstName"
               onChange={handleInput}
-              className=""
+              className="input"
               type="text"
               defaultValue={updatedUser.firstName}
             />
@@ -29,7 +29,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
             <input
               name="lastName"
               onChange={handleInput}
-              className=""
+              className="input"
               type="text"
               defaultValue={updatedUser.lastName}
             />
@@ -42,7 +42,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
               name="email"
               autoComplete="list"
               onChange={handleInput}
-              className=""
+              className="input"
               type="text"
               defaultValue={updatedUser.email}
             />
@@ -54,7 +54,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
             <input
               name="username"
               onChange={handleInput}
-              className=""
+              className="input"
               type="text"
               autoComplete="none"
               defaultValue={updatedUser.username}
@@ -69,7 +69,7 @@ const ProfileEditForm = ({ handleInput, handleProfileUpdate, updatedUser, select
         </div>
         <button
           onClick={handleProfileUpdate}
-          className="float-right mt-6 rounded-lg p-2 shadow-md"
+          className="btn btn-primary float-right mt-6 rounded-lg p-2 shadow-md"
         >
           Update
         </button>

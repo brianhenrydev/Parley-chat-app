@@ -9,14 +9,14 @@ export const MoodSelect = ({ selectedMood, onMoodChange }) => {
   }, [])
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 flex flex-col">
       <div className="label">Mood:</div>
       <select
         value={selectedMood}
         name="moodEmoji"
         id="mood-select"
         onChange={onMoodChange}
-        className="w-full rounded-lg border border-gray-300 bg-gray-700 p-2 text-white"
+        className="select"
       >
         <option value="" disabled>Select a mood</option>
         {moods.map(({ emoji, label }) => (

@@ -9,14 +9,14 @@ export const LangSelect = ({ selectedLang, onLangChange }) => {
   }, [])
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 flex flex-col">
       <div className="label">Preferred Language:</div>
       <select
         value={selectedLang}
         name="preferredLang"
         id="lang-select"
         onChange={onLangChange}
-        className="w-full rounded-lg border border-gray-300 bg-gray-700 p-2 text-white"
+        className="select"
       >
         <option value="" disabled>Select a Preferred Language</option>
         {

@@ -47,32 +47,32 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
   }, [body, currentUser.preferredLang]);
 
   return message.userId === 0 ? (
-    <div className="chat-bubble chat-start flex flex-col space-y-2 shadow-2xl">
-      <div className="flex justify-start">
+    <div className="chat chat-start my-1.5 flex flex-col space-y-2">
+      <div className="flex">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="mr-2">chatbot</span>
-            <span className="text-lg">🤖</span>
+            <span className="chat-header mr-2">chatbot</span>
+            <span className="chat-header text-lg">🤖</span>
           </div>
         </Link>
       </div>
-      <div className="flex justify-start">
-        <div className="shadow-lg">
+      <div className="flex">
+        <div className="chat-bubble">
           {parse(translatedBody)}
         </div>
       </div>
-      <div className="flex justify-start">
+      <div className="flex">
         <div className="text-xs text-gray-500">
           {new Date(timestamp).toLocaleString()}
         </div>
       </div>
     </div>
   ) : (
-    <div className="chat-bubble chat-end flex flex-col space-y-2">
+    <div className="chat chat-end flex flex-col space-y-2">
       <div className="flex justify-end">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="mr-2">{user.username}</span>
+            <span className="chat-header mr-2">{user.username}</span>
             <span className="text-lg">{user.moodEmoji}</span>
           </div>
         </Link>
@@ -105,7 +105,7 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
           </div>
         ) : (
           <div className="flex justify-end">
-            <div className="shadow-2xl">
+            <div className="chat-bubble">
               {translatedBody}
             </div>
           </div>

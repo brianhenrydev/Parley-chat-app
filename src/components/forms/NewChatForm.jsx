@@ -34,15 +34,15 @@ const NewChatForm = () => {
   }
 
   return (
-    <div className="mt-44">
-      <form className="m-auto mt-44 rounded-lg p-14 py-16 shadow-sm md:w-1/2 lg:w-1/4">
+    <div className="mt-4">
+      <form className="bg-neutral m-auto mt-44 rounded-lg p-14 py-16 shadow-2xl md:w-1/2 lg:w-1/4">
         <div className="text-center text-4xl">New Chat</div>
         <label className="text-lg" >
           Topic:
           <input
             name="topic"
             onChange={handleInput}
-            className=""
+            className="input"
           />
         </label>
         <label className="text-lg">
@@ -51,14 +51,14 @@ const NewChatForm = () => {
             name="name"
             autoComplete="off"
             onChange={handleInput}
-            className=""
+            className="input"
           />
         </label>
         <label className="text-lg" >
           Category:
           <select
             id="category-select"
-            className=""
+            className="select"
           >
             {
               categories.map(({ name, id }) => <option key={id}>{name}</option>)
@@ -70,12 +70,12 @@ const NewChatForm = () => {
           <input
             name="description"
             onChange={handleInput}
-            className="form-input"
+            className="input"
           />
         </label>
         <button
           onClick={handleSubmit}
-          className="float-right mt-2 rounded-lg p-2 shadow-md">Create</button>
+          className="btn btn-primary float-right mt-2 rounded-lg p-2 shadow-md">Create</button>
       </form>
     </div>
   )
