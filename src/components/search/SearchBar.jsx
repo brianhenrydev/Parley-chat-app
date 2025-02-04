@@ -5,7 +5,7 @@ const SearchBar = ({ setSearchTerm }) => {
       <input
         id="search-bar"
         onChange={({ target: { value } }) => setSearchTerm(value)}
-        className="mx-2 h-12 w-11/12 rounded-xl border-2 border-blue-700 bg-blue-950 pl-2 text-red-50"
+        className="mx-2 h-12 w-11/12 rounded-xl border-2 pl-2"
         placeholder="Search Chats..."
         type="text"
       />

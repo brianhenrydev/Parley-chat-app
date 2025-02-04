@@ -94,8 +94,8 @@ const Chat = () => {
 
 
   return (
-    <div className="flex h-full flex-col">
-      <div className="chat-container" ref={msgContainerRef}>
+    <div className="m-2 flex h-full flex-col">
+      <div className="pb-12" ref={msgContainerRef}>
         {chatMessages.map((message) => {
           return (
             <Message

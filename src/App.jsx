@@ -4,6 +4,7 @@ import UserProvider from "./contexts/UserProvider"
 import Login from "./components/auth/Login"
 import ApplicationViews from "./views/ApplicationViews"
 import Register from "./components/auth/Register"
+import { ThemeProvider } from "./contexts/ThemeProvider"
 
 const App = () => {
   const routes = useRoutes([
@@ -19,7 +20,9 @@ const App = () => {
   ])
   return (
     <UserProvider>
-      {routes}
+      <ThemeProvider>
+        {routes}
+      </ThemeProvider>
     </UserProvider>
   )
 }

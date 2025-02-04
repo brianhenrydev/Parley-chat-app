@@ -4,7 +4,7 @@ import { deleteMessage } from "../../services/message/deleteMessage";
 import { editMessage } from "../../services/message/editMessage";
 import translateMessage from "../../services/translation/Translate";
 import { getUserById } from "../../services/user/userServices"
-import Markdown from "react-markdown";
+import parse from 'html-react-parser';
 
 const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
   const [user, setUser] = useState({});
@@ -47,78 +47,97 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
   }, [body, currentUser.preferredLang]);
 
   return message.userId === 0 ? (
-
-    <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800/30 bg-opacity-50 p-4 shadow-md shadow-blue-950">
-      <Link className="mb-1 font-bold text-blue-400 hover:text-red-500">
-        <div className="">chatbot  🤖</div>
-      </Link>
-      <div className="mb-1 break-words rounded-lg bg-gray-900 p-2 text-xl text-blue-400">
-        <Markdown>{translatedBody}</Markdown>
+    <div className="chat-bubble chat-start flex flex-col space-y-2 shadow-2xl">
+      <div className="flex justify-start">
+        <Link className="link link-primary">
+          <div className="flex items-center">
+            <span className="mr-2">chatbot</span>
+            <span className="text-lg">🤖</span>
+          </div>
+        </Link>
       </div>
-      <div className="text-xs text-gray-500">
-        {new Date(timestamp).toLocaleString()}
+      <div className="flex justify-start">
+        <div className="shadow-lg">
+          {parse(translatedBody)}
+        </div>
+      </div>
+      <div className="flex justify-start">
+        <div className="text-xs text-gray-500">
+          {new Date(timestamp).toLocaleString()}
+        </div>
       </div>
     </div>
   ) : (
-    <div className="z-5 my-3 flex transform flex-col rounded-lg bg-gray-800/30 bg-opacity-50 p-4 shadow-md shadow-blue-950">
-      <Link className="mb-1 font-bold text-blue-400 hover:text-red-500">
-        <div className="">{user.username}  {user.moodEmoji}</div>
-      </Link>
+    <div className="chat-bubble chat-end flex flex-col space-y-2">
+      <div className="flex justify-end">
+        <Link className="link link-primary">
+          <div className="flex items-center">
+            <span className="mr-2">{user.username}</span>
+            <span className="text-lg">{user.moodEmoji}</span>
+          </div>
+        </Link>
+      </div>
       {
         isEditing ? (
-          <div className="mb-1 break-words text-gray-300">
-            <textarea
-              id={message.id}
-              value={editedMessage?.body}
-              onChange={({ target: { value } }) => setEditedMessage({ ...editedMessage, body: value })}
-              className="h-20 w-full rounded-md border bg-gray-800 p-2 text-blue-200"
-            ></textarea>
-            <div className="mt-2 flex justify-end">
-              <button
-                onClick={handleSaveEdit}
-                className="mr-2 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-              >
-                Save
-              </button>
-              <button
-                onClick={handleCancelEdit}
-                className="rounded-md bg-red-400 px-4 py-2 hover:bg-gray-300"
-              >
-                Cancel
-              </button>
+          <div className="flex justify-end">
+            <div className="w-full">
+              <textarea
+                id={message.id}
+                value={editedMessage?.body}
+                onChange={({ target: { value } }) => setEditedMessage({ ...editedMessage, body: value })}
+                className="w-full"
+              ></textarea>
+              <div className="mt-2 flex justify-end">
+                <button
+                  onClick={handleSaveEdit}
+                  className="btn btn-primary mr-2"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={handleCancelEdit}
+                  className="btn btn-secondary"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         ) : (
-          <div className="mb-1 break-words text-gray-300">{translatedBody}</div>
+          <div className="flex justify-end">
+            <div className="shadow-2xl">
+              {translatedBody}
+            </div>
+          </div>
         )
       }
+      <div className="flex justify-end">
+        {
+          userId === currentUser.id && !isEditing ?
+            <div className="flex justify-end">
+              <div className="flex justify-end">
+                <button
+                  onClick={handleEdit}
+                  className="btn mr-2"
+                >Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(id)}
+                  className="btn"
+                >Delete
+                </button>
+              </div>
+            </div>
+            :
+            <></>
+        }
+      </div>
       <div className="text-xs text-gray-500">
         {new Date(timestamp).toLocaleString()}
       </div>
-      {
-        userId === currentUser.id && !isEditing ?
-          <div className="">
-            <div className="row float-end flex">
-              <div className="flex-row text-right">
-                <button
-                  onClick={handleEdit}
-                  className="mr-2 text-blue-400"
-                >Edit
-                </button>
-              </div>
-              <button
-                onClick={() => handleDelete(id)}
-                className="mr-2 text-red-500"
-              >Delete
-              </button>
-            </div>
-          </div>
-          :
-          <></>
-      }
     </div>
   );
 };
 
-export default Message
+export default Message;
 

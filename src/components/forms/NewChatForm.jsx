@@ -35,37 +35,37 @@ const NewChatForm = () => {
 
   return (
     <div className="mt-44">
-      <form className="m-auto mt-44 rounded-lg bg-gray-800 p-14 py-16 shadow-sm shadow-gray-800 md:w-1/2 lg:w-1/4">
-        <div className="text-center text-4xl text-blue-500">New Chat</div>
-        <label className="text-lg text-blue-200" >
+      <form className="m-auto mt-44 rounded-lg p-14 py-16 shadow-sm md:w-1/2 lg:w-1/4">
+        <div className="text-center text-4xl">New Chat</div>
+        <label className="text-lg" >
           Topic:
           <input
             name="topic"
             onChange={handleInput}
-            className="form-input"
+            className=""
           />
         </label>
-        <label className="text-lg text-blue-200" >
+        <label className="text-lg">
           Name:
           <input
             name="name"
             autoComplete="off"
             onChange={handleInput}
-            className="form-input"
+            className=""
           />
         </label>
-        <label className="text-lg text-blue-200" >
+        <label className="text-lg" >
           Category:
           <select
             id="category-select"
-            className="form-input"
+            className=""
           >
             {
               categories.map(({ name, id }) => <option key={id}>{name}</option>)
             }
           </select>
         </label>
-        <label className="text-lg text-blue-200" >
+        <label className="text-lg" >
           Description:
           <input
             name="description"
@@ -75,7 +75,7 @@ const NewChatForm = () => {
         </label>
         <button
           onClick={handleSubmit}
-          className="float-right mt-2 rounded-lg bg-blue-500 p-2 text-gray-200 shadow-md shadow-black">Create</button>
+          className="float-right mt-2 rounded-lg p-2 shadow-md">Create</button>
       </form>
     </div>
   )

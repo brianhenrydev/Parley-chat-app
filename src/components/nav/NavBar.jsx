@@ -1,52 +1,60 @@
 import { Link } from "react-router-dom"
-import ThemeControl from "./ThemeControl"
+import { ThemeContext } from "../../contexts/ThemeProvider"
+import { useContext } from "react"
 
 const NavBar = () => {
+  const { theme, changeTheme, themes } = useContext(ThemeContext);
   return (
-    <div className="flex justify-center bg-white shadow-md">
-      <div className="navbar w-11/12">
-        <ol className="flex items-center justify-between p-4">
-          <li>
-            <Link to="/" className="nav-link font-semibold text-gray-400 hover:text-blue-600">
-              My Chats
-            </Link>
-          </li>
-          <div className="flex w-3/4 justify-evenly">
-            <li>
-              <Link to="/all-chats" className="nav-link font-semibold text-gray-400 hover:text-blue-600">
-                All Chats
-              </Link>
-            </li>
-            <li>
-              <Link to="/new-chat" className="nav-link font-semibold text-gray-400 hover:text-blue-600">
-                New Chat
-              </Link>
-            </li>
-            <li>
-              <Link to="/profile" className="nav-link font-semibold text-gray-400 hover:text-blue-600">
-                Profile
-              </Link>
-            </li>
-          </div>
-          <li>
-            <Link
-              to="/login"
-              onClick={() => localStorage.removeItem("chat_user")}
-              className="nav-link rounded-lg bg-blue-900 p-4 font-semibold text-white hover:text-red-600"
-
-            >
-              Logout
-            </Link>
-          </li>
-        </ol>
+    <div className="fixed left-0 top-0 z-50 flex w-full justify-between p-2 shadow-md">
+      <div>
+        <Link to="/" className="btn btn-secondary">
+          My Chats
+        </Link>
       </div>
+      <div>
+        <Link to="/all-chats" className="btn btn-secondary">
+          All Chats
+        </Link>
+      </div>
+      <div>
+        <Link to="/new-chat" className="btn btn-secondary">
+          New Chat
+        </Link>
+      </div>
+      <div>
+        <Link to="/profile" className="btn btn-secondary">
+          Profile
+        </Link>
+      </div>
+      <li className="btn btn-secondary">
+        <select
+          onChange={({ target: { value } }) => changeTheme(value)}
+        >
+          {
+            themes.map(
+              (t) =>
+                <option selected={t === theme && true} key={t} value={t}>{t}</option>
+            )
+          }
+        </select>
+      </li>
+      <div>
+        <Link
+          to="/login"
+          onClick={() => localStorage.removeItem("chat_user")}
+          className="btn btn-warning"
+        >
+          Logout
+        </Link>
+      </div>
+
     </div>
   )
 }
 
-export default NavBar
 
-const CompactNavBar = () => {
+const SlimNavBar = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <div className="flex justify-center bg-transparent">
       <div className="navbar w-11/12">
@@ -83,9 +91,13 @@ const CompactNavBar = () => {
               Logout
             </Link>
           </li>
+          <li className="btn btn-outline">
+            <button onClick={toggleTheme}>Theme</button>
+          </li>
         </ol>
       </div >
     </div >
   )
 }
 
+export default NavBar
