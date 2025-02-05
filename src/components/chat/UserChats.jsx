@@ -32,12 +32,12 @@ const UserChats = () => {
           <div
             id="user-chats"
             key={id}
-            className="mx-2 cursor-pointer"
+            className="bg-neutral mx-2 cursor-pointer rounded-xl"
           >
             <div className="mt-5 flex w-full items-center justify-between rounded-xl p-2 shadow-lg">
               <Link
                 to={`/chat/${id}`}
-                className="p-2 text-4xl">{name}</Link>
+                className="p-2 text-4xl text-neutral-500">{name}</Link>
             </div>
           </div>
         ))}

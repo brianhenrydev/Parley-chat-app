@@ -44,7 +44,7 @@ const AllChats = () => {
           <div
             id="user-chats"
             key={id}
-            className="mx-2 cursor-pointer"
+            className="bg-neutral mx-2 cursor-pointer rounded-2xl"
           >
             <div className="mt-5 w-full rounded-xl p-2 align-middle shadow-lg">
               <div className="w-full flex-col">
