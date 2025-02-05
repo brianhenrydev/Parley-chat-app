@@ -22,14 +22,13 @@ const Chat = () => {
   const getAllChatMessages = async () => {
     const cm = await getChatMessages(chatId)
     setChatMessages(cm)
+    setTimeout(() => scrollToBottom(), 100)
   };
-  useEffect(() => {
-    getAllChatMessages()
-  })
 
   useEffect(() => {
-    setTimeout(() => { scrollToBottom() }, 100);
-  }, [chatMessages]);
+    getAllChatMessages()
+  }, [])
+
 
 
   const handleSlashMessage = async (message) => {
@@ -48,10 +47,10 @@ const Chat = () => {
           timestamp: new Date().toLocaleString()
         })
         const query = body.substring(5)
-        const { response } = await queryAi(query)
+        const { message: { content } } = await queryAi(query, chatMessages)
         await editMessage({
           ...botResponse,
-          body: response
+          body: content
         })
         getAllChatMessages()
       }
@@ -97,9 +96,9 @@ const Chat = () => {
 
 
   return (
-    <div className="mx-3 mb-32 mt-10 flex h-full flex-col">
+    <div className="flex h-full flex-col px-3 pb-32 pt-10">
       <div
-        className="h-screen flex-grow"
+        className="h-screen flex-grow  overflow-y-auto"
         ref={msgContainerRef}
       >
         {chatMessages.map((message) => {

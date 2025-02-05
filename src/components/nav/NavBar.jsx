@@ -28,6 +28,7 @@ const NavBar = () => {
       </div>
       <li className="btn btn-secondary">
         <select
+          id="theme-select"
           defaultValue={theme}
           className="border-none focus:border-none"
           onChange={({ target: { value } }) => changeTheme(value)}
