@@ -1,46 +1,13 @@
 @import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
 @layer base, components, utilities, variants;
 
 
-:root {
-  @apply bg-gray-900;
-}
+:root {}
 
-@layer components {
-  .chat-container {
-    @apply h-full overflow-y-auto border-gray-700 p-4 mt-9;
-  }
 
-  .floating-form {
-    @apply m-auto sm:w-3/4 md:w-1/2 lg:w-1/4 p-11 shadow-lg bg-gray-800 rounded-lg;
-  }
-
-  .input {
-    @apply w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-gray-800 opacity-60 text-slate-300;
-  }
-
-  .btn-blue {
-    @apply w-full mt-2 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200;
-  }
-
-  .btn-submit {
-    @apply w-full mt-1 p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition duration-200;
-  }
-
-  .nav-link {
-    @apply text-blue-400 hover:text-blue-300;
-  }
-
-  .navbar {
-    @apply bg-gray-800 shadow-black shadow-md mt-2 p-3 rounded-md h-auto fixed z-50;
-  }
-
-  .form-input {
-    @apply w-full rounded-lg border border-gray-300 bg-gray-700 p-2 text-white;
-  }
-
-  .label {
-    @apply text-lg font-semibold text-blue-200;
-  }
-
-}
+@layer components {}

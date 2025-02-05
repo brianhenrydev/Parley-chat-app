@@ -6,18 +6,16 @@ import UserChats from "../components/chat/UserChats"
 import Profile from "../components/user/Profile"
 import NewChatForm from "../components/forms/NewChatForm"
 
-export const ApplicationViews = () => {
+const ApplicationViews = () => {
 
 
   const AppRoutes = useRoutes([
     {
       path: "/",
       element: (
-        <div className="flex h-screen flex-col">
+        <div className="flex flex-col">
           <NavBar />
-          <div className="grow h-screen">
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       ),
       children: [
@@ -37,3 +35,4 @@ export const ApplicationViews = () => {
   return (AppRoutes)
 }
 
+export default ApplicationViews

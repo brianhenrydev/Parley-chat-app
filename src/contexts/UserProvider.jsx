@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getUserByEmail } from "../services/user/userServices"
 
-export const UserProvider = ({ children }) => {
+const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("chat_user")) || {
     id: 0,
     full_name: "",
@@ -18,9 +18,13 @@ export const UserProvider = ({ children }) => {
 
   const handleLogin = (email) => {
     getUserByEmail(email).then(([user]) => {
-      setCurrentUser(user)
-      localStorage.setItem("chat_user", JSON.stringify(user))
-      navigate("/")
+      if (user) {
+        setCurrentUser(user)
+        localStorage.setItem("chat_user", JSON.stringify(user))
+        navigate("/")
+      } else {
+        window.alert("Invalid Login")
+      }
     })
   }
 
@@ -37,3 +41,5 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   )
 }
+
+export default UserProvider
