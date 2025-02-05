@@ -34,8 +34,8 @@ const NewChatForm = () => {
   }
 
   return (
-    <div className="mt-4">
-      <form className="bg-neutral m-auto mt-44 rounded-lg p-14 py-16 shadow-2xl md:w-1/2 lg:w-1/4">
+    <div className="">
+      <form className="bg-neutral pb-26 m-auto mt-44 rounded-lg px-14 pt-14 shadow-2xl md:w-1/2 lg:w-1/4">
         <div className="text-center text-4xl">New Chat</div>
         <label className="text-lg" >
           Topic:
