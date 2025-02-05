@@ -16,7 +16,7 @@ export const LangSelect = ({ selectedLang, onLangChange }) => {
         name="preferredLang"
         id="lang-select"
         onChange={onLangChange}
-        className="select"
+        className="select w-full"
       >
         <option value="" disabled>Select a Preferred Language</option>
         {

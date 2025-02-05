@@ -16,7 +16,7 @@ export const MoodSelect = ({ selectedMood, onMoodChange }) => {
         name="moodEmoji"
         id="mood-select"
         onChange={onMoodChange}
-        className="select"
+        className="select w-full"
       >
         <option value="" disabled>Select a mood</option>
         {moods.map(({ emoji, label }) => (

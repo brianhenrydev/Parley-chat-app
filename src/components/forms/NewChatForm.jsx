@@ -75,7 +75,7 @@ const NewChatForm = () => {
         </label>
         <button
           onClick={handleSubmit}
-          className="btn btn-primary float-right mt-2 rounded-lg p-2 shadow-md">Create</button>
+          className="btn btn-primary float-right mt-4 w-full rounded-lg shadow-md">Create</button>
       </form>
     </div>
   )
