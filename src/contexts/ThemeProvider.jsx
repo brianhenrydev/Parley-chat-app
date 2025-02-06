@@ -17,11 +17,12 @@ const themes = [
   "abyss", "silk"
 ]
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
 
   const changeTheme = (theme) => {
     setTheme(theme);
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem("theme", theme)
   };
 
   return (

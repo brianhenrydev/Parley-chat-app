@@ -47,17 +47,16 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
   }, [body, currentUser.preferredLang]);
 
   return message.userId === 0 ? (
-    <div className="chat chat-start my-1.5 flex flex-col space-y-2">
-      <div className="flex">
+    <div className="chat chat-end my-1.5 flex flex-col space-y-2">
+      <div className="">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="chat-header mr-2 text-lg">chatbot</span>
-            <span className="chat-header text-lg">🤖</span>
+            <span className="chat-header text-secondary mr-2 text-lg">chatbot 🤖</span>
           </div>
         </Link>
       </div>
       <div className="flex">
-        <div className="chat-bubble">
+        <div className="chat-bubble chat-bubble-secondary">
           {parse(translatedBody)}
         </div>
       </div>
@@ -72,7 +71,7 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
       <div className="flex justify-end">
         <Link className="link link-primary">
           <div className="flex items-center">
-            <span className="chat-header mr-2 text-lg">
+            <span className="chat-header text-primary mr-2 text-lg">
               {user.username}
             </span>
             <span className="text-lg">{user.moodEmoji}</span>
@@ -81,13 +80,13 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
       </div>
       {
         isEditing ? (
-          <div className="flex justify-end">
-            <div className="w-full">
+          <div className="chat-end flex">
+            <div className="">
               <textarea
                 id={message.id}
                 value={editedMessage?.body}
                 onChange={({ target: { value } }) => setEditedMessage({ ...editedMessage, body: value })}
-                className="w-full"
+                className="chat-bubble chat-bubble-primary"
               ></textarea>
               <div className="mt-2 flex justify-end">
                 <button
@@ -106,8 +105,8 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
             </div>
           </div>
         ) : (
-          <div className="flex justify-end">
-            <div className="chat-bubble">
+          <div className="chat chat-end">
+            <div className="chat-bubble chat-bubble-primary">
               {translatedBody}
             </div>
           </div>
