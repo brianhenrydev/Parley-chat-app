@@ -11,6 +11,11 @@ To install and run Parley, follow these steps:
 * Clone the repository from GitHub.
 * Install the required dependencies using `npm install`.
 * Run the application using `npm run dev`.
+```
+npm install
+npm run dev
+
+```
 * Open a web browser and navigate to [http://localhost:5173](http://localhost:5173) to access the application.
 
 # How does the application work?
@@ -21,9 +26,9 @@ Parley allows users to create and join dedicated channels for specific topics. T
 * The application supports multiple users in each channel, fostering collaboration and interaction among like-minded individuals.
 
 # How was the application developed?
-The development of Parley involved several stages, including:
-* Wireframing: The wireframes for Parley can be found at [this link](https://miro.com/app/board/uXjVLDNTU1I=/?share_link_id=122216993054).
-* Entity-Relationship Diagram ERD: [View ERD](https://dbdiagram.io/d/Parley-678956836b7fa355c3218cd9).
+##Built with:
+    - Frontend: JavaScript/React
+    - Backend: json-server
 
 ### Technologies Used
 ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) 
@@ -33,4 +38,13 @@ The development of Parley involved several stages, including:
 ![Git](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) 
 ![GitHub](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) 
 ![JSON Server](https://img.shields.io/badge/JSON_Server%20-%232a2e2a.svg?&style=for-the-badge&logo=JSON&logoColor=white) 
+
+
+# Challenges
+
+Technical hurdles:
+
+- Ui design.
+- Real-time updates: Implementing real-time updates for messages and channel activity to provide a seamless user experience.
+- Integrating AI models with the chat application
 
