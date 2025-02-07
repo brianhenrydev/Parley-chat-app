@@ -1,2 +1,3 @@
-export const getMoods = () =>
-	fetch("http://localhost:8088/moods").then((res) => res.json());
+import { api } from "../axios";
+
+export const getMoods = () => api.get("moods").then((res) => res.data);

@@ -1,2 +1,3 @@
-export const getAllChats = () =>
-	fetch("http://localhost:8088/chats").then((res) => res.json());
+import { api } from "../axios";
+
+export const getAllChats = () => api.get("chats").then((res) => res.data);

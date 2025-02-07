@@ -1,4 +1,5 @@
-const getLanguages = () =>
-	fetch("http://localhost:8088/languages").then((res) => res.json());
+import { api } from "../axios";
+
+const getLanguages = () => api.get("languages").then((res) => res.data);
 
 export default getLanguages;

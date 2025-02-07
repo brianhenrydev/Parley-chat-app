@@ -1,8 +1,8 @@
+import { aiApi } from "../axios";
+
 const queryAi = (prompt, chatMessages) =>
-	fetch("http://localhost:11436/api/chat", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
+	aiApi
+		.post("/api/chat", {
 			model: "llama3.2",
 			messages: [
 				{
@@ -25,11 +25,7 @@ const queryAi = (prompt, chatMessages) =>
 				},
 			],
 			stream: false,
-		}),
-	})
-		.then((res) => res.json())
-		.catch((error) => {
-			console.error("Error:", error);
-		});
+		})
+		.then((res) => res.data);
 
 export default queryAi;

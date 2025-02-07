@@ -1,5 +1,6 @@
+import { api } from "../axios";
+
 const getChatMessages = (chatId) =>
-	fetch(`http://localhost:8088/messages?chatId=${chatId}`).then((res) =>
-		res.json(),
-	);
+	api.get(`messages?chatId=${chatId}`).then((res) => res.data);
+
 export default getChatMessages;

@@ -1,8 +1,6 @@
+import { api } from "../axios";
+
 const createMessage = (message) =>
-	fetch("http://localhost:8088/messages", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(message),
-	}).then((res) => res.json());
+	api.post("messages", message).then((res) => res.data);
 
 export default createMessage;

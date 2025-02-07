@@ -1,2 +1,4 @@
+import { api } from "../axios";
+
 export const getUserById = (userId) =>
-	fetch(`http://localhost:8088/users/${userId}`).then((res) => res.json());
+	api.get(`users/${userId}`).then((res) => res.data);

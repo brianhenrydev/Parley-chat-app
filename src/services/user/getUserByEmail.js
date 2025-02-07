@@ -1,4 +1,6 @@
+import { api } from "../axios";
+
 const getUserByEmail = (email) =>
-	fetch(`http://localhost:8088/users?email=${email}`).then((res) => res.json());
+	api.get(`users?email=${email}`).then((res) => res.data);
 
 export default getUserByEmail;

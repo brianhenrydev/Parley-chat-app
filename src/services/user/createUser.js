@@ -1,8 +1,6 @@
+import { api } from "../axios";
+
 const createUser = (userObj) =>
-	fetch("http://localhost:8088/users", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(userObj),
-	}).then((res) => res.json());
+	api.post("users", userObj).then((res) => res.data);
 
 export default createUser;
