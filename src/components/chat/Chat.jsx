@@ -96,7 +96,7 @@ const Chat = () => {
 
 
   return (
-    <div className="flex h-full flex-col px-3 pb-14 pt-10">
+    <div className="flex h-screen flex-col px-3 pb-14 pt-10">
       <div
         className="h-screen flex-grow overflow-y-auto"
         ref={msgContainerRef}
