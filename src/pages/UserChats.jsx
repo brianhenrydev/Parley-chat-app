@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../contexts/UserContext"
-import { getUserChats } from "../../services/chat/getUserChats"
-import SearchBar from "../search/SearchBar"
+import { UserContext } from "../contexts/UserContext"
+import { getUserChats } from "../services/chat/getUserChats"
+import SearchBar from "../components/search/SearchBar"
 import { Link } from "react-router-dom"
 
 const UserChats = () => {

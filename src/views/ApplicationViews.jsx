@@ -1,9 +1,9 @@
 import { Outlet, useRoutes } from "react-router-dom"
 import NavBar from "../components/nav/NavBar"
 import Chat from "../components/chat/Chat"
-import AllChats from "../components/chat/AllChats"
-import UserChats from "../components/chat/UserChats"
-import Profile from "../components/user/Profile"
+import AllChats from "../pages/AllChats"
+import UserChats from "../pages/UserChats"
+import Profile from "../pages/Profile"
 import NewChatForm from "../components/forms/NewChatForm"
 
 const ApplicationViews = () => {

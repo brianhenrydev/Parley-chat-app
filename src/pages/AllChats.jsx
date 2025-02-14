@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext, useCallback } from "react";
-import { getAllChats } from "../../services/chat/getAllChats"
+import { getAllChats } from "../services/chat/getAllChats"
 import { Link, useNavigate } from "react-router-dom";
-import { getUserChats } from "../../services/chat/getUserChats"
-import SearchBar from "../search/SearchBar";
-import { UserContext } from "../../contexts/UserContext"
-import { addUserToChat } from "../../services/user/addUserToChat"
+import { getUserChats } from "../services/chat/getUserChats"
+import SearchBar from "../components/search/SearchBar";
+import { UserContext } from "../contexts/UserContext"
+import { addUserToChat } from "../services/user/addUserToChat"
 
 const AllChats = () => {
   const [allChats, setAllChats] = useState([]);
