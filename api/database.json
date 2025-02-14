@@ -1,0 +1,242 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "firstName": "Ai",
+      "lastName": "chatman",
+      "tagline": "Your favorite chatbot",
+      "moodEmoji": "🤔",
+      "email": "chatbot@ai.com",
+      "username": "chatbot"
+    },
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "doughy",
+      "userName": "johndoe",
+      "tagline": "Just another chat user",
+      "moodEmoji": "💼",
+      "email": "johndoe@example.com",
+      "username": "therealjohn"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "General"
+    },
+    {
+      "id": 2,
+      "name": "Technology"
+    },
+    {
+      "id": 3,
+      "name": "Books & Literature"
+    },
+    {
+      "id": 4,
+      "name": "Food & Drinks"
+    },
+    {
+      "id": 5,
+      "name": "Arts & Creativity"
+    },
+    {
+      "id": 6,
+      "name": "Health & Fitness"
+    },
+    {
+      "id": 7,
+      "name": "Travel"
+    },
+    {
+      "id": 8,
+      "name": "Music"
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "name": "General Chat",
+      "userId": 1,
+      "categoryId": 1,
+      "description": "A place for general discussions.",
+      "createdAt": "2023-09-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Tech Talk",
+      "userId": 2,
+      "categoryId": 2,
+      "description": "Discuss the latest in technology.",
+      "createdAt": "2023-09-16T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Book Club",
+      "userId": 4,
+      "categoryId": 3,
+      "description": "Share and discuss your favorite books.",
+      "createdAt": "2023-09-17T09:15:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Coffee Lovers",
+      "userId": 5,
+      "categoryId": 4,
+      "description": "A chat for coffee enthusiasts.",
+      "createdAt": "2023-09-18T16:45:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Creative Corner",
+      "userId": 6,
+      "categoryId": 5,
+      "description": "A space for artists and creators.",
+      "createdAt": "2023-09-19T11:20:00Z"
+    },
+    {
+      "id": 6,
+      "name": "Fitness Fanatics",
+      "userId": 3,
+      "categoryId": 6,
+      "description": "Discuss fitness tips and share workouts.",
+      "createdAt": "2023-09-20T13:00:00Z"
+    },
+    {
+      "id": 7,
+      "name": "Travel Tales",
+      "userId": 10,
+      "categoryId": 7,
+      "description": "Share your travel experiences and tips.",
+      "createdAt": "2023-09-21T15:30:00Z"
+    },
+    {
+      "id": 8,
+      "name": "Music Lounge",
+      "userId": 8,
+      "categoryId": 8,
+      "description": "Discuss all things music.",
+      "createdAt": "2023-09-22T12:45:00Z"
+    },
+    {
+      "topic": "Pizza",
+      "name": "Pizza Lovers",
+      "description": "A place for pizza lovers to gather",
+      "category": "",
+      "id": 9
+    },
+    {
+      "topic": "jokes",
+      "name": "Dad Jokes",
+      "description": "A place to share your best dad jokes",
+      "category": "",
+      "createdAt": "2/1/2025, 11:17:41 AM",
+      "id": 11
+    }
+  ],
+  "messages": [],
+  "chatUsers": [],
+  "moods": [
+    {
+      "emoji": " ",
+      "label": "none"
+    },
+    {
+      "emoji": "🙂",
+      "label": "Content"
+    },
+    {
+      "emoji": "😐",
+      "label": "Neutral"
+    },
+    {
+      "emoji": "😞",
+      "label": "Disappointed"
+    },
+    {
+      "emoji": "😠",
+      "label": "Frustrated"
+    },
+    {
+      "emoji": "😳",
+      "label": "Surprised"
+    },
+    {
+      "emoji": "😇",
+      "label": "Optimistic"
+    },
+    {
+      "emoji": "😎",
+      "label": "Confident"
+    },
+    {
+      "emoji": "🤔",
+      "label": "Thoughtful"
+    },
+    {
+      "emoji": "😅",
+      "label": "Relieved"
+    },
+    {
+      "emoji": "🤗",
+      "label": "Supportive"
+    },
+    {
+      "emoji": "🤝",
+      "label": "Collaborative"
+    },
+    {
+      "emoji": "💼",
+      "label": "Professional"
+    },
+    {
+      "emoji": "🌟",
+      "label": "Motivated"
+    },
+    {
+      "emoji": "💡",
+      "label": "Inspired"
+    },
+    {
+      "emoji": "📈",
+      "label": "Ambitious"
+    },
+    {
+      "emoji": "🧘",
+      "label": "Calm"
+    },
+    {
+      "emoji": "🤝",
+      "label": "Team Player"
+    },
+    {
+      "emoji": "🧐",
+      "label": "Inquisitive"
+    },
+    {
+      "emoji": "🤓",
+      "label": "Diligent"
+    },
+    {
+      "emoji": "😇",
+      "label": "Hopeful"
+    },
+    {
+      "emoji": "😬",
+      "label": "Apprehensive"
+    },
+    {
+      "emoji": "😕",
+      "label": "Unsure"
+    },
+    {
+      "emoji": "😮",
+      "label": "Amazed"
+    },
+    {
+      "emoji": "😵",
+      "label": "Overwhelmed"
+    }
+  ]
+}
