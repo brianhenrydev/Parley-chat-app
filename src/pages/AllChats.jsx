@@ -49,7 +49,7 @@ const AllChats = () => {
             <div className="mt-5 w-full rounded-xl p-2 align-middle shadow-lg">
               <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
-                  className="p-2 text-4xl"
+                  className="text-secondary p-2 text-4xl"
                 >
                   {name}
                 </Link>
