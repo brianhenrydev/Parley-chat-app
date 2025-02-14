@@ -3,17 +3,16 @@ import { createContext, useState } from 'react';
 const ThemeContext = createContext();
 
 const themes = [
-  "light", "dark", "cupcake", "bumblebee",
+  "dark", "cupcake",
   "emerald", "corporate", "synthwave",
-  "retro", "cyberpunk", "valentine",
+  "cyberpunk",
   "halloween", "garden", "forest",
-  "aqua", "lofi", "pastel", "fantasy",
-  "wireframe", "black", "luxury",
-  "dracula", "cmyk", "autumn",
+  "aqua", "lofi", "fantasy",
+  "wireframe", "luxury",
+  "dracula", "cmyk",
   "business", "acid", "lemonade",
   "night", "coffee", "winter",
-  "dim", "nord", "sunset",
-  "caramellatte",
+  "dim", "sunset",
   "abyss", "silk"
 ]
 const ThemeProvider = ({ children }) => {

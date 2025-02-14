@@ -10,10 +10,22 @@ The purpose of Parley is to create a user-friendly platform for organized discus
 To install and run Parley, follow these steps:
 * Clone the repository from GitHub.
 * Install the required dependencies using `npm install`.
-* Run the application using `npm run dev`.
+* Run the application using `npm run dev` 
 ```
 npm install
 npm run dev
+
+```
+in a separate terminal in the same directory run
+```
+npm run db
+
+```
+additionally to use the chatbot features
+install ollama and run the api with
+```
+ OLLAMA_HOST=127.0.0.1:11436 ollama serve
+
 
 ```
 * Open a web browser and navigate to [http://localhost:5173](http://localhost:5173) to access the application.
@@ -25,10 +37,10 @@ Parley allows users to create and join dedicated channels for specific topics. T
 * Users can send and receive messages within channels, complete with timestamps for context.
 * The application supports multiple users in each channel, fostering collaboration and interaction among like-minded individuals.
 
-# How was the application developed?
-##Built with:
+## This app was built with:
     - Frontend: JavaScript/React
     - Backend: json-server
+    - chatbot api: ollama with the llama3 model
 
 ### Technologies Used
 ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) 
@@ -44,7 +56,6 @@ Parley allows users to create and join dedicated channels for specific topics. T
 
 Technical hurdles:
 
-- Ui design.
-- Real-time updates: Implementing real-time updates for messages and channel activity to provide a seamless user experience.
+- UI design.
 - Integrating AI models with the chat application
 

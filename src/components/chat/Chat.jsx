@@ -107,7 +107,6 @@ const Chat = () => {
               key={message.id}
               message={message}
               currentUser={currentUser}
-              translate={false}
               getAllChatMessages={getAllChatMessages}
             />
           )

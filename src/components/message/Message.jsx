@@ -2,16 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { deleteMessage } from "../../services/message/deleteMessage";
 import { editMessage } from "../../services/message/editMessage";
-import translateMessage from "../../services/translation/Translate";
 import { getUserById } from "../../services/user/userServices"
 import parse from 'html-react-parser';
 
-const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
+const Message = ({ message, currentUser, getAllChatMessages }) => {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedMessage, setEditedMessage] = useState(message);
   const { id, userId, timestamp, body } = message;
-  const [translatedBody, setTranslatedBody] = useState(body)
 
   const handleDelete = (id) => {
     deleteMessage(id).then(() => getAllChatMessages());
@@ -36,15 +34,6 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
     getUserById(userId).then((user) => { setUser(user) });
   }, [userId]);
 
-  useEffect(() => {
-    if (!translate) {
-      setTranslatedBody(body)
-    } else {
-      translateMessage(body, currentUser.preferredLang)
-        .then(({ translatedText }) =>
-          setTranslatedBody(translatedText))
-    }
-  }, [body, currentUser.preferredLang]);
 
   return message.userId === 0 ? (
     <div className="chat chat-end my-1.5 flex flex-col space-y-2">
@@ -57,7 +46,7 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
       </div>
       <div className="flex">
         <div className="chat-bubble chat-bubble-secondary">
-          {parse(translatedBody)}
+          {parse(body)}
         </div>
       </div>
       <div className="flex">
@@ -107,7 +96,7 @@ const Message = ({ message, currentUser, getAllChatMessages, translate }) => {
         ) : (
           <div className="chat chat-end">
             <div className="chat-bubble chat-bubble-primary">
-              {translatedBody}
+              {body}
             </div>
           </div>
         )

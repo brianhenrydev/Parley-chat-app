@@ -7,7 +7,3 @@ export const api = axios.create({
 export const aiApi = axios.create({
 	baseURL: "http://localhost:11436",
 });
-
-export const langApi = axios.create({
-	baseURL: "http://localhost:5200",
-});

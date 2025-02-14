@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "db": "json-server ./api/database.json -p 8088",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
