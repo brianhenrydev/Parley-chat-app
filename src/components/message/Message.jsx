@@ -58,7 +58,10 @@ const Message = ({ message, currentUser, getAllChatMessages }) => {
   ) : (
     <div className="chat chat-end flex flex-col space-y-2">
       <div className="flex justify-end">
-        <Link className="link link-primary">
+        <Link
+          to={`/u/${user.username}`}
+          className="link link-primary"
+        >
           <div className="flex items-center">
             <span className="chat-header text-primary mr-2 text-lg">
               {user.username}

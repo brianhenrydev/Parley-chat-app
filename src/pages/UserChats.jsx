@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../contexts/UserContext"
-import { getUserChats } from "../../services/chat/getUserChats"
-import SearchBar from "../search/SearchBar"
+import { UserContext } from "../contexts/UserContext"
+import { getUserChats } from "../services/chat/getUserChats"
+import SearchBar from "../components/search/SearchBar"
 import { Link } from "react-router-dom"
 
 const UserChats = () => {
@@ -37,7 +37,7 @@ const UserChats = () => {
             <div className="mt-5 flex w-full items-center justify-between rounded-xl p-2 shadow-lg">
               <Link
                 to={`/chat/${id}`}
-                className="p-2 text-4xl text-neutral-500">{name}</Link>
+                className="text-secondary p-2 text-4xl">{name}</Link>
             </div>
           </div>
         ))}

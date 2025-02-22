@@ -25,7 +25,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="btn btn-secondary">
-        <ThemeSelect />
+        theme: <ThemeSelect />
       </div>
       <div>
         <Link

@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext, useCallback } from "react";
-import { getAllChats } from "../../services/chat/getAllChats"
+import { getAllChats } from "../services/chat/getAllChats"
 import { Link, useNavigate } from "react-router-dom";
-import { getUserChats } from "../../services/chat/getUserChats"
-import SearchBar from "../search/SearchBar";
-import { UserContext } from "../../contexts/UserContext"
-import { addUserToChat } from "../../services/user/addUserToChat"
+import { getUserChats } from "../services/chat/getUserChats"
+import SearchBar from "../components/search/SearchBar";
+import { UserContext } from "../contexts/UserContext"
+import { addUserToChat } from "../services/user/addUserToChat"
 
 const AllChats = () => {
   const [allChats, setAllChats] = useState([]);
@@ -49,7 +49,7 @@ const AllChats = () => {
             <div className="mt-5 w-full rounded-xl p-2 align-middle shadow-lg">
               <div className="w-full flex-col">
                 <Link to={`/chat/${id}`}
-                  className="p-2 text-4xl"
+                  className="text-secondary p-2 text-4xl"
                 >
                   {name}
                 </Link>

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
-import { updateUser } from "../../services/user/updateUser"
-import { UserContext } from "../../contexts/UserContext"
-import ProfileEditForm from "../forms/ProfileEditForm"
+import { updateUser } from "../services/user/updateUser"
+import { UserContext } from "../contexts/UserContext"
+import ProfileEditForm from "../components/forms/ProfileEditForm"
 
 const Profile = () => {
   const { currentUser, updateCurrentUser } = useContext(UserContext)
