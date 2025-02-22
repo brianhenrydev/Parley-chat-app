@@ -5,6 +5,7 @@ import AllChats from "../pages/AllChats"
 import UserChats from "../pages/UserChats"
 import Profile from "../pages/Profile"
 import NewChatForm from "../components/forms/NewChatForm"
+import UserProfile from "../pages/UserProfile"
 
 const ApplicationViews = () => {
 
@@ -29,6 +30,12 @@ const ApplicationViews = () => {
         { path: "all-chats", element: <AllChats /> },
         { path: "new-chat", element: <NewChatForm /> },
         { path: "profile", element: <Profile /> },
+        {
+          path: "u",
+          children: [
+            { path: ":username", element: <UserProfile /> }
+          ],
+        },
       ],
     }
   ])

@@ -6,7 +6,7 @@ export const ThemeSelect = () => {
   return (
     <select
       id="theme-select"
-      defaultValue="abyss"
+      defaultValue="theme"
       className="border-none focus:border-none"
       onChange={({ target: { value } }) => changeTheme(value)}
     >
