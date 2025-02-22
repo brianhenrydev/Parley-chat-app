@@ -22,7 +22,7 @@ npm run db
 
 ```
 additionally to use the chatbot features
-install ollama and run the api with
+install [ollama](https://ollama.com/), pull the llama3 model and run the api with
 ```
  OLLAMA_HOST=127.0.0.1:11436 ollama serve
 
